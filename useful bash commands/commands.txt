@@ -1,0 +1,19 @@
+make sure to cd into the kafka directory first.
+
+start zookeeper
+    sudo sh bin/zookeeper-server-start.sh config/zookeeper.properties
+
+start kafka
+    sudo sh bin/kafka-server-start.sh config/server.properties 
+
+list kafka topics
+    sudo bin/kafka-topics.sh --bootstrap-server=localhost:9092 --list
+
+create kafka topic
+    sudo bin/kafka-topics.sh --create --topic <topic-name> --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+run producer console 
+    sudo sh bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <topic-name>
+
+run consumer console
+    sudo sh bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <topic-name>
